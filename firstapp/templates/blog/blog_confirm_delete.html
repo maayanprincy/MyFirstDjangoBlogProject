@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+  <!-- Header -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+  
+    <h1 class="section-heading"><b>Blog Form</b></h1>
+	<br/>
+    <form method="post">
+	{% csrf_token %}
+      <p> Are you Confirm to delete the post  '<font color="blue">{{object.title}}</font>' ?</p><br/>
+	  
+	  
+      <button type="submit" class="btn btn-danger ">Delete</button> &nbsp;
+	 
+	  
+      <a  href="{% url 'post-detail' object.id %}" class="btn btn-primary ">Cancel</a>
+	  
+	  
+    </form>  
+  
+  </div>
+  </div>
+  </div>
+  
+  
+  
+
+
+<!-- End page content -->
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "apptemp/base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+
+
+  <!-- Header -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Register.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <form method="post">
+	{% csrf_token %}
+      <div class="w3-section">
+        {{form | crispy}}
+      </div>
+      
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Submit</button>
+    </form> 
+	<small class="text-muted">
+		Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In Now</a>
+	</small>	
+  </div>
+  
+  
+  
+
+
+<!-- End page content -->
+{% endblock %}

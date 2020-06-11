@@ -1,0 +1,30 @@
+{% extends "apptemp/base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+
+
+  <!-- Header -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Profile.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h4 class="w3-xxxlarge "><b>{{user.username}}</b></h4>
+	<p ><b>{{user.email}}</b></p>
+	<img src="{{user.profile.image.url}}" class="rounded-circle" alt="Cinque Terre">
+	
+	<form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+      <div class="w3-section">
+        {{u_form | crispy}}
+		{{p_form | crispy}}
+      </div>
+      
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Update</button>
+    </form> 
+  </div>
+  
+  
+  
+
+
+<!-- End page content -->
+{% endblock %}
